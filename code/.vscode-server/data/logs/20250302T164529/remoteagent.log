@@ -1,0 +1,18 @@
+2025-03-02 16:45:29.278 [info] 
+
+
+
+
+2025-03-02 16:45:29.292 [info] Extension host agent started.
+2025-03-02 16:45:29.383 [info] [<unknown>][180b3250][ExtensionHostConnection] New connection established.
+2025-03-02 16:45:29.385 [info] [<unknown>][a68cff6f][ManagementConnection] New connection established.
+2025-03-02 16:45:29.521 [info] [<unknown>][180b3250][ExtensionHostConnection] <190> Launched Extension Host Process.
+2025-03-02 16:45:39.648 [error] [network] #1: https://main.vscode-cdn.net/extensions/marketplace.json - error GET getaddrinfo EAI_AGAIN main.vscode-cdn.net
+2025-03-02 16:45:45.971 [info] [<unknown>][a68cff6f][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-03-02 16:45:48.523 [info] [<unknown>][2b1ff478][ManagementConnection] New connection established.
+2025-03-02 16:45:48.528 [info] [<unknown>][f9de9b99][ExtensionHostConnection] New connection established.
+2025-03-02 16:45:48.536 [info] [<unknown>][f9de9b99][ExtensionHostConnection] <225> Launched Extension Host Process.
+2025-03-02 16:45:54.811 [info] [<unknown>][180b3250][ExtensionHostConnection] <190> Extension Host Process exited with code: 0, signal: null.
+2025-03-02 16:45:54.812 [info] Cancelling previous shutdown timeout
+2025-03-02 16:46:11.397 [error] [network] #2: https://mobile.events.data.microsoft.com/OneCollector/1.0?cors=true&content-type=application/x-json-stream - error POST getaddrinfo EAI_AGAIN mobile.events.data.microsoft.com
+2025-03-02 16:46:34.839 [error] [network] #3: https://mobile.events.data.microsoft.com/OneCollector/1.0?cors=true&content-type=application/x-json-stream - error POST getaddrinfo EAI_AGAIN mobile.events.data.microsoft.com
