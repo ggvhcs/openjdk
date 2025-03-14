@@ -13,9 +13,6 @@ Index:
 --- 7 --- enside container test the compiler.
 --- 8 --- join container with vscode with ssh.
 
---- java biblio to learn ---
-https://introcs.cs.princeton.edu/java/11hello/
-
 --- youtube ---
 https://youtu.be/CXL-NVxZnfY
 
@@ -107,3 +104,6 @@ container-id-number
 --- !we need have ssh extensions installed.
 --- ping the ip addres from host 
 --- connect vscode and the container.
+
+--- bibliography ---
+https://introcs.cs.princeton.edu/java/11hello/

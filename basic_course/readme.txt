@@ -13,27 +13,6 @@ Index:
 --- 7 --- enside container test the compiler.
 --- 8 --- join container with vscode with ssh.
 
---- bibliography ---
-https://introcs.cs.princeton.edu/java/12types/
-https://introcs.cs.princeton.edu/java/13flow/
-https://introcs.cs.princeton.edu/java/14array/
-https://introcs.cs.princeton.edu/java/15inout/
-https://introcs.cs.princeton.edu/java/16pagerank/
-https://introcs.cs.princeton.edu/java/21function/
-https://introcs.cs.princeton.edu/java/22library/
-https://introcs.cs.princeton.edu/java/23recursion/
-https://introcs.cs.princeton.edu/java/24percolation/
-https://introcs.cs.princeton.edu/java/31datatype/
-https://introcs.cs.princeton.edu/java/32class/
-https://introcs.cs.princeton.edu/java/33design/
-https://introcs.cs.princeton.edu/java/34nbody/
-
-https://introcs.cs.princeton.edu/java/41analysis/
-https://introcs.cs.princeton.edu/java/42sort/
-https://introcs.cs.princeton.edu/java/43stack/
-https://introcs.cs.princeton.edu/java/44st/
-https://introcs.cs.princeton.edu/java/45graph/
-
 --- youtube ---
 
 --- github repository ---
@@ -48,57 +27,38 @@ Visual Studio Code version 1.96.4
 ---
 
 --- 1 --- download image debian:12 from hub docker ---
-$ sudo docker pull debian:12 // download docker image.
-$ sudo docker images |grep debian // check if download is ok.
 
-cd ~/Documents/GitHub/docker/java/openjdk
-$ sudo chmod 777 -Rvf ../openjdk
-$ sudo chown nobody:nogroup -Rvf ../openjdk
+$ cd ~/Documents/GitHub/docker/java/openjdk/basic_course
+$ sudo chmod 777 -Rvf ../basic_course
+$ sudo chown nobody:nogroup -Rvf ../basic_course
 
 --- 2 --- Create the Dockerfile file ---
-$ touch Dockerfile
-$ nano Dockerfile
-$ cat Dockerfile
----
-FROM debian:12
-
-RUN apt update
-RUN apt install -y default-jdk
-RUN apt install -y default-jre 
-RUN apt install -y openssh-server
-RUN apt install -y nano
-
-EXPOSE 22
-
-RUN mkdir /app
-WORKDIR /app
----
 
 --- 3 --- create image from debian 12 ---
-$ sudo docker build -t debian-openjdk17:develop .
-$ sudo docker images |grep openjdk17
----
-debian-openjdk17   develop   ee918f7f25b0   8 hours ago         815MB
----
 
 --- 4 --- !test the image created * !container delete on exit *---
-$ sudo docker run --rm -it \
--v ~/Documents/GitHub/docker/java/openjdk:/app \
---interactive --tty --entrypoint /bin/bash debian-openjdk17:develop
-debian-openjdk17:develop /bin/bash
 
 --- finally we create the java develop container.
-$ sudo docker run -p 22:22 \
---net bridge \
--v ~/Documents/GitHub/docker/java/openjdk:/app \
--v ~/Documents/GitHub/docker/java/openjdk/ssh:/etc/ssh \
--v ~/Documents/GitHub/docker/java/openjdk/code:/root \
+$ sudo docker run -p 22:22 -rm \
+--net bridge --name ojdk-develop \
+-v $(pwd)/app:/app \
+-v $(pwd)/ssh:/etc/ssh \
+-v $(pwd)/code:/root \
 -it debian-openjdk17:develop /bin/bash
 
 --- 5 ---- !run sshd service and pass to user root.
 ! Important this, we need be sure the service always be runing.
-$ /etc/init.d/ssh start && /etc/init.d/ssh status
+$ /etc/init.d/ssh restart && /etc/init.d/ssh status
+---
+sshd is running.
+---
+
 $ passwd root
+---
+New password: 
+Retype new password: 
+passwd: password updated successfully
+---
 
 --- 6 --- !allow user root sign on ssh. !important for connect from vscode.
 $ cat /etc/ssh/sshd_config |grep PermitRootLogin
@@ -120,7 +80,38 @@ $ java HelloWorld // execute Hello World
 $ sudo docker inspect -f \
 '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
 container-id-number
+---
+172.17.0.3
+---
 
 --- !we need have ssh extensions installed.
---- ping the ip addres from host 
+--- ping the ip addres from host ---
+$ ping 172.17.0.3
+---
+PING 172.17.0.3 (172.17.0.3) 56(84) bytes of data.
+64 bytes from 172.17.0.3: icmp_seq=1 ttl=64 time=0.197 ms
+64 bytes from 172.17.0.3: icmp_seq=2 ttl=64 time=0.073 ms
+---
+
 --- connect vscode and the container.
+
+--- bibliography ---
+https://introcs.cs.princeton.edu/java/12types/
+https://introcs.cs.princeton.edu/java/13flow/
+https://introcs.cs.princeton.edu/java/14array/
+https://introcs.cs.princeton.edu/java/15inout/
+https://introcs.cs.princeton.edu/java/16pagerank/
+https://introcs.cs.princeton.edu/java/21function/
+https://introcs.cs.princeton.edu/java/22library/
+https://introcs.cs.princeton.edu/java/23recursion/
+https://introcs.cs.princeton.edu/java/24percolation/
+https://introcs.cs.princeton.edu/java/31datatype/
+https://introcs.cs.princeton.edu/java/32class/
+https://introcs.cs.princeton.edu/java/33design/
+https://introcs.cs.princeton.edu/java/34nbody/
+
+https://introcs.cs.princeton.edu/java/41analysis/
+https://introcs.cs.princeton.edu/java/42sort/
+https://introcs.cs.princeton.edu/java/43stack/
+https://introcs.cs.princeton.edu/java/44st/
+https://introcs.cs.princeton.edu/java/45graph/

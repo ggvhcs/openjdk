@@ -1,14 +1,14 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
 # dependencies
-node_modules/
+*/.local/
+*/.config/
+*/.ssh/
+*/.vscode-server/
 code/
 
-# Expo
-.expo/
-dist/
-web-build/
-expo-env.d.ts
+# bash
+*/.bash_history/
 
 # Native
 *.orig.*
