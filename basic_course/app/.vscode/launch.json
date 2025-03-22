@@ -1,0 +1,38 @@
+{
+    "configurations": [        
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ArrayDemo.src.App",
+            "projectName": "app_16d792"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ArrayListDemoBears.src.App",
+            "projectName": "app_16d792"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListDemoStrinList",
+            "request": "launch",
+            "mainClass": "ArrayListDemo.ArrayListDemoStrinList.src.ArrayListDemoStrinList",
+            "projectName": "app_16d792"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListDemoStrinList",
+            "request": "launch",
+            "mainClass": "ArrayListDemo.ArrayListDemo1.src.ArrayListDemoStrinList",
+            "projectName": "app_16d792"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Docker: Attach to Node",
+            "remoteRoot": "/usr/src/app"
+        }
+    ]
+}

@@ -39,7 +39,7 @@ $ sudo chown nobody:nogroup -Rvf ../basic_course
 --- 4 --- !test the image created * !container delete on exit *---
 
 --- finally we create the java develop container.
-$ sudo docker run -p 22:22 -rm \
+$ sudo docker run -p 22:22 --rm \
 --net bridge --name ojdk-develop \
 -v $(pwd)/app:/app \
 -v $(pwd)/ssh:/etc/ssh \
